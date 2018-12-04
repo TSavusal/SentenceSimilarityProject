@@ -13,13 +13,13 @@ CONST_ETA = 0.4
 total_words = 0
 word_freq_brown = {}
 
-def proper_synset(word_one , word_two):
+def proper_synset(word_one,word_two):
     pair = (None,None)
     maximum_similarity = -1
     synsets_one = wn.synsets(word_one)
     synsets_two = wn.synsets(word_two)
     #print("first word :",word_one)
-    #print("second word",word_two)
+    #print("second word :",word_two)
     #print(synsets_one)
     #print(synsets_two)
     if(len(synsets_one)!=0 and len(synsets_two)!=0):
@@ -32,12 +32,11 @@ def proper_synset(word_one , word_two):
                     maximum_similarity = similarity
                     pair = synset_one,synset_two
     else:
-        #need to see as for some word there will be no wordset.
-        #shuld make it as none
-        pair = (None , None)
+        #Need to see as for some words there won't be a wordset, should make them as none
+        pair = (None,None)
     return pair
 	
-def length_between_words(synset_one , synset_two):
+def length_between_words(synset_one,synset_two):
     length = 100000000
     if synset_one is None or synset_two is None:
         return 0
@@ -117,7 +116,7 @@ def most_similar_word(word,sentence):
         most_similarity = 0
     return most_similar_word,most_similarity 
 
-def gen_sem_vec(sentence , joint_word_set):
+def gen_sem_vec(sentence,joint_word_set):
     semantic_vector = np.zeros(len(joint_word_set))
     #print(semantic_vector)
     i = 0

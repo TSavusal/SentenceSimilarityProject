@@ -1,0 +1,11 @@
+sentenceA,sentenceB
+A girl is riding a horse,A girl is riding a brown horse
+A man is riding a skateboard in a park,A man is riding a skateboard
+A woman is eating and drinking with other women,Some women are eating and drinking 
+A person is playing a drum,A red car is on the shirt of a man
+A cat is resting on a chair,An onion is being cut by a man
+A woman is speaking on a stage,A drunk man is watering a dog
+The sheep is grazing on the grass,An animal is grazing in a field
+Some kids are eating the food,The food on the trays is being eaten by the kids
+A dog is running on the beach,A surfer is riding the wave
+A cat is playing with a stuffed bear,A cat is playing with a toy

@@ -18,10 +18,6 @@ def proper_synset(word_one,word_two):
     maximum_similarity = -1
     synsets_one = wn.synsets(word_one)
     synsets_two = wn.synsets(word_two)
-    #print("first word :",word_one)
-    #print("second word :",word_two)
-    #print(synsets_one)
-    #print(synsets_two)
     if(len(synsets_one)!=0 and len(synsets_two)!=0):
         for synset_one in synsets_one:
             for synset_two in synsets_two:
@@ -72,18 +68,9 @@ def depth_common_subsumer(synset_one,synset_two):
                 val = [hypernym_word[1] for hypernym_word in cs.hypernym_distances()]
                 val = max(val)
                 if val > height : height = val
-
-    #print(height) #works
     return (math.exp(CONST_BETA * height) - math.exp(-CONST_BETA * height))/(math.exp(CONST_BETA * height) + math.exp(-CONST_BETA * height))
 
 def word_similarity(word1,word2):
-    #depth_common_subsumer(wn.synset('boy.n.01'),wn.synset('life_form.n.01'))
-    #print(wn.synset('boy.n.01').lowest_common_hypernym(wn.synset('animal.n.01')))
-    #print(wn.synset('boy.n.01').lowest_common_hypernym(wn.synset('girl.n.01')))
-    #word1 = input("Enter the first word: ")
-    #word2 = input("Enter the second word: ")
-    #synset_wordone = wn.synset(word1+".n.01")#doesnt work
-    #synset_wordtwo = wn.synset(word2+".n.01")#doesnt work
     synset_wordone,synset_wordtwo = proper_synset(word1,word2) # cant just add +".n.01" to words to convert them to a synset.
     #Need to execute the above as we cant know whether a 'noun' for of the word exists or not.
     return length_between_words(synset_wordone,synset_wordtwo) * depth_common_subsumer(synset_wordone,synset_wordtwo)
@@ -117,12 +104,9 @@ def most_similar_word(word,sentence):
 
 def gen_sem_vec(sentence,joint_word_set):
     semantic_vector = np.zeros(len(joint_word_set))
-    #print(semantic_vector)
     i = 0
-    #print("This is sentence :",sentence)
-    #print("This is joint word set:",joint_word_set)
     for joint_word in joint_word_set:
-        sim_word = joint_word # to measure the 
+        sim_word = joint_word
         beta_sim_measure = 1
         if (joint_word in sentence):
             pass
@@ -130,32 +114,18 @@ def gen_sem_vec(sentence,joint_word_set):
             sim_word,beta_sim_measure = most_similar_word(joint_word,sentence) # gets the most similar word in that sentence.
             beta_sim_measure = 0 if beta_sim_measure <= CONST_PHI else beta_sim_measure
         sim_measure = beta_sim_measure * I(joint_word) * I(sim_word)
-        #sim_measure = beta_sim_measure ##Without information content which is got from the corpus.
         semantic_vector[i] = sim_measure
         i+=1
     return semantic_vector
 	
 def sent_sim(sent_set_one, sent_set_two , joint_word_set):
-    #sent_set_one = set(filter(lambda x : not (x == '.' or x == '?') , word_tokenize(sentence_one)))
-    #sent_set_two = set(filter(lambda x : not (x == '.' or x == '?') , word_tokenize(sentence_two)))
-    #print(sent_set_one)    
-    #print(sent_set_two)
-    #print(list(sent_set_one.union(sent_set_two)))
-    #joint_word_set = list(sent_set_one.union(sent_set_two))
-    #print(joint_word_set)
-    #sent_set_one = list(sent_set_one)
-    #sent_set_two = list(sent_set_two)
     sem_vec_one = gen_sem_vec(sent_set_one,joint_word_set)
     sem_vec_two = gen_sem_vec(sent_set_two,joint_word_set)
     #multiply the two vectors..
-    #print(sem_vec_one)
-    #print(sem_vec_two)
     return np.dot(sem_vec_one,sem_vec_two.T) / (np.linalg.norm(sem_vec_one) * np.linalg.norm(sem_vec_two))
 	
 def word_order_similarity(sentence_one , sentence_two):
-    #print("Sentence one :",sentence_one)
     token_one  = word_tokenize(sentence_one)
-    #print("Sentence two : ",sentence_two)
     token_two = word_tokenize(sentence_two)
     joint_word_set = list(set(token_one).union(set(token_two)))
     r1 = np.zeros(len(joint_word_set))

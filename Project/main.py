@@ -24,17 +24,11 @@ pip3 install git+git://github.com/gsi-upm/sematch.git
 	# print("You need to download the nltk book! Select it from the menu")
 	# nltk.download()
 import logging
-from Semantic_Similarity import task3SemanticSim
+from Semantic_Similarity import task3SemanticRunner
 from task1_file import task1
 from task2_file import sentenceSimilarityForTask2, PartialSim, task2,get_wordnet_pos
 from task5_file import sentenceSimilarityForTask5, task5
 from task4_file import task4
-# --------------------------------------------------------------------------------------------------------------------------------------------------------
-def task3SemanticRunner(sentencePairs):
-    for i in range(0,len(sentencePairs)):
-        s1 = sentencePairs[i][0]
-        s2 = sentencePairs[i][1]
-        print("Similarity3 (Semantic): " + str(task3SemanticSim(s1,s2)).ljust(18) + " for sentence pair: "+ str(sentencePairs[i]))
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 if __name__== "__main__":
     #Task 1: Build sentence pairs

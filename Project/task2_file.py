@@ -103,7 +103,7 @@ def get_wordnet_pos(treebank_tag):
     elif treebank_tag.startswith('R'):
         return wn.ADV
     else:
-        return ''	
+        return ''    
 # ----------------------------------------------------------------
 '''
 #Task Description:
@@ -124,4 +124,6 @@ def task2(sentencePairs,similarity_method):
     for i in range(0,len(sentencePairs)):
         s1 = sentencePairs[i][0]
         s2 = sentencePairs[i][1]
-        print("Similarity2: " + str(sentenceSimilarityForTask2(s1,s2,similarity_method)).ljust(18) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print
+        sim = sentenceSimilarityForTask2(s1,s2,similarity_method)
+        sim = (round(sim,3))
+        print("Similarity2: " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print

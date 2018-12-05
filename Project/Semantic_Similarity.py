@@ -186,7 +186,7 @@ def word_order_similarity(sentence_one , sentence_two):
         else:
             #get best word and check if its greater then a preset threshold
             sim_word , sim = most_similar_word(word , list(set_token_two))
-            if sim > CONST_ETA : 
+            if sim > CONST_ETA :
                 r2[j] = en_joint_two[sim_word]
             else:
                 r2[j] = 0
@@ -200,53 +200,14 @@ def task3SemanticSim(sentence_one,sentence_two):
     #Need to get the dictionary to have the corresponding indexes of the joint_word_set. 
     sentence_similarity = (CONST_DELTA * sent_sim(sent_set_one,sent_set_two,list(joint_word_set))) + ((1.0 - CONST_DELTA) * word_order_similarity(sentence_one,sentence_two))
     return sentence_similarity
-#sentence_one = "I play hockey"
-#sentence_two = "who are you?"
-#print(task3SemanticSim(sentence_one,sentence_two))\
-
-def file_sem(f):
-    contents = open(f).read().strip()
-    ind_sentences = sent_tokenize(contents)
-    #print(ind_sentences)
-    no_of_sentences = len(ind_sentences)
-    sent_sim_matr = np.zeros((no_of_sentences,no_of_sentences))
-    i = 0
-    print(ind_sentences)
-    while(i < no_of_sentences):
-        j = i
-        while(j < no_of_sentences):
-            sent_sim_matr[i][j] = task3SemanticSim(ind_sentences[i],ind_sentences[j])
-            sent_sim_matr[j][i] = sent_sim_matr[i][j]
-            j+=1
-        i+=1
-    return sent_sim_matr
 	
 def intro():
-    print("\nEnter a valid option:\n")
-    print("1.Sentence Similarity between two files containing different sentences.")
-    print("2.Sentence similarity between two sentences\n")
-    option = int(input("Your choice : "))
-    if option == 1:
-        file_one = input("Enter the path of the file :")
-        #file_two = input("Enter the path of the second file")
-        prob_sim_sent = file_sem(file_one)
-        print("Similarity between the sentences in a single file is : (IN MATRIX FORM)\n")
-        print(prob_sim_sent)
-        #could've pickeled , but wrote it to a file.
-        f_n = file_one[0:len(file_one)-4:]+"_matrix.txt"
-        output_file = open(f_n,'w')
-        output_file.write(str(prob_sim_sent))
-    elif option == 2:
-        sent_one = input("Enter the first sentence : ")
-        sent_two = input("Enter the second sentence two :")
-        prob_sim_sent = task3SemanticSim(sent_one , sent_two)
-        print(prob_sim_sent)
-        #print("Similarity between\n"+sent_one+"\n"+sent_two+"\n\n is : ",prob_sim_sent)
-    else:
-        global max_count
-        if max_count < 3 : print("Wrong Choice Try again"); max_count+=1 
-        else: print("Wrong choice time exceeded!");exit()
-        intro()
+		print("Sentence similarity between two sentences\n")
+		print("\nEnter sentences:\n")
+		sent_one = input("Enter the first sentence : ")
+		sent_two = input("Enter the second sentence two : ")
+		prob_sim_sent = task3SemanticSim(sent_one , sent_two)
+		print(prob_sim_sent)
 
 if __name__ == "__main__":  
     print("-------------------Sentence Similarity--------------------------")

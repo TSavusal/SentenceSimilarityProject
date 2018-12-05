@@ -18,7 +18,7 @@ def download_requirements():
 	from sys import exit
 	if version_info <= (3, 0):
 		print("\nUse python version 3.0 or higher. ( Code was tested with 3.5.2)")
-		print("EXITING")
+		print("--> EXITING")
 		exit(1)
 	try:
 		#Verify that we have the required nlkt packages

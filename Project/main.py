@@ -14,7 +14,7 @@ except:
     nltk.download()
 from Semantic_Similarity import task3SemanticRunner
 from task1_file import task1
-from task2_file import sentenceSimilarityForTask2, PartialSim, task2,get_wordnet_pos
+from task2_file import sentenceSimilarityForTask2, task2,get_wordnet_pos
 from task5_file import sentenceSimilarityForTask5, task5
 from task4_file import task4
 # --------------------------------------------------------------------------------------------------------------------------------------------------------

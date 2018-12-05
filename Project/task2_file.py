@@ -3,28 +3,30 @@ from nltk import pos_tag
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet as wn
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
-'''
-Sentence similarity as was instructed in section 2 of the document.
 
-Example usage of the function:
-s1 = "Car is driving on the road"
-s2 = "Car is driving on the road"
-similarity_method = "wupalmer_sim"
-
-print(sentenceSimilarityForTask2(s1,s2,similarity_method))
-
-'''
-def sentenceSimilarityForTask2(s1,s2,method):
-    val1 = PartialSim(s1,s2,method)
-    return(val1)
+# def sentenceSimilarityForTask2(s1,s2,method):
+    # val1 = PartialSim(s1,s2,method)
+    # return(val1)
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 '''
-Calculates similarity score between sent 1 and sent 2.  NOTE: The direction that you use to input the sentences makes a difference.
-Input format:  str, str, str
+Description  -------------------------------------------------------------------------
+Calculates sentence similarity based on either Wu-Palmer or path similarity.
 
-returns the similarity value in numeric format
+Inputs  ------------------------------------------------------------------------------
+s1          Sentence 1
+s2          Sentence 2
+method      The method to be used. Either "wupalmer_sim"  or "path_sim"
+
+#Outputs -----------------------------------------------------------------------------
+Returns the value the represents the similarity between the sentences.
+
+Example usage of the function  -------------------------------------------------------
+
+s1 = "Car is driving on the road"
+s2 = "Car is driving on the road"
+print(sentenceSimilarityForTask2(s1,s2,"wupalmer_sim"))
 '''
-def PartialSim(s1,s2,method):
+def sentenceSimilarityForTask2(s1,s2,method):
     #Format the input sentences to desired form
     s1=s1.lower()
     s2=s2.lower()
@@ -87,6 +89,7 @@ def PartialSim(s1,s2,method):
     return(s1_total)
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 '''
+Description
 Convert to compatible pos tag.
 nltk.pos_tag (...) is not compatible with wn.synsets(). We need to convert to a compatible form.
 
@@ -106,19 +109,18 @@ def get_wordnet_pos(treebank_tag):
         return ''    
 # ----------------------------------------------------------------
 '''
-#Task Description:
-Next use standard wordnet semantic score. Namely, if the sentence S1 is tokenized as {a1, a2, a3} I and
-sentence S2 of the pair is tokenized as {b1, b2} for example. Then the overall wordnet semantic score will be
-Sim(S1, S2) =[ max(Sim(a1,b1), Sim(a1, b2)) + max(Sim(a2,b1), Sim(a2, b2)) + max(Sim(a3,b1), Sim(a3, b2)) ]/3
-( In other words we compare first word in sentence S1, get it's synonym set and 
-for instance in Sim(a1,b1)   we calculate simlarity between first word in S1 and first word in S2. 
-in max(Sim(a1,b1), Sim(a1, b2))  we take the maximum value. AKA compare first word in S1 and find the word in S2
-that has the highest similarity with the first word. Then that similarity score will be in the calculus.
-e.g.   S = (0.5 + 0.6 + 0.7) /3   #Here 3 is the number of words in S1
+Description  -------------------------------------------------------------------------
+Function that will calculate sentence similarities based on wordnet.
+Prints the results
 
-#Function description:
-Takes a list of sentencepairs as input. This list was constructed in fucntion: task1()
-Prints the similarity scores for each sentence pair.
+Inputs  ------------------------------------------------------------------------------
+sentencePairs       A list containing pairs of sentences
+similarity_method   The method to be used for calculating the similarity
+#Outputs -----------------------------------------------------------------------------
+No outputs
+
+Example usage of the function  -------------------------------------------------------
+See "main.py" file for an example.
 '''
 def task2(sentencePairs,similarity_method):
     for i in range(0,len(sentencePairs)):

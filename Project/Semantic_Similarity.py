@@ -13,11 +13,11 @@ CONST_ETA = 0.4
 total_words = 0
 word_freq_brown = {}
 '''
-Description  ---------------------------------------------------------------
+Description  -------------------------------------------------------------------------
 Function that will calculate several semantic similarities.
 The results of all these will be printed.
 
-Inputs  ---------------------------------------------------------------
+Inputs  ------------------------------------------------------------------------------
 sentencePairs       A list containing pairs of sentences
 
 #Outputs -----------------------------------------------------------------------------

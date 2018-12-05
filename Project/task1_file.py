@@ -1,12 +1,12 @@
 '''
-#Task description:
-First, you should construct your own database of sentences.
-Ideally, this database should be constituted of pair of sentences.
-These pair of sentences should be ordered in descending order for similarity.
+Description  ------------------------------------------------------------------------
+Function creates a list that contains paired sentences.
 
-#Function Description:
-Function will return a list of tuples. Each unit in the list contains 2 sentences.
-If you need to loop though the sentence pairs then see function task2() for an example
+Inputs  -----------------------------------------------------------------------------
+No inputs
+
+#Outputs ----------------------------------------------------------------------------
+Returns a list containing sentence pairs.
 '''
 def task1():
     sentencePairs=[]

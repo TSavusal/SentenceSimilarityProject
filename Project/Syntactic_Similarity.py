@@ -3,7 +3,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 
 def task3SyntacticSim(s1,s2):
-	
 	'''remove punctuation, lowercase, stem'''
 	nltk.download('punkt') # if necessary
 	stemmer = nltk.stem.porter.PorterStemmer()

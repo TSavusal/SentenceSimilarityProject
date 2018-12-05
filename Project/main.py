@@ -221,7 +221,7 @@ task4-function takes a list of sentencepairs as input (as constructed in functio
 task4Yago-function calculates similarity score between sent 1 and sent 2 (very similar to PartialSim-function).
 task4Yago-function takes input in following format:  str, str, str
 task4Yago-function returns the similarity value in numeric format.
-'''
+
 '''
 #Load YAGO
 sim_yago = YagoTypeSimilarity()
@@ -305,7 +305,6 @@ def task4(sentencePairs):
         s1 = sentencePairs[i][0]
         s2 = sentencePairs[i][1]
         print("Similarity: " + str(task4Yago(s1,s2,"wpath_graph")).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))
-'''
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 '''
 Sentence similarity with Word2Vec model
@@ -407,11 +406,10 @@ if __name__== "__main__":
     print("\nTask 3: Calculate similarity for the sentence pairs ------------------------------------------------------------------------------------------")
     task3SemanticRunner(sentencePairs)
 
-	'''
 	#Task 4: Calculate similarity for the sentence pairs using YAGO
     print("\nTask 4: Calculate similarity for the sentence pairs using YAGO concepts ----------------------------------------------------------------------")
     task4(sentencePairs)
-	'''
+
 	
     #Task 5: Word2Vec for calculating sentence similarity. (Word2Vec)
     print("\nTask 5: Word2Vec for calculating sentence similarity -------------------------------------------------------------------------------------------")

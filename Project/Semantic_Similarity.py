@@ -12,7 +12,20 @@ CONST_DELTA = 0.875
 CONST_ETA = 0.4
 total_words = 0
 word_freq_brown = {}
+'''
+Description  ---------------------------------------------------------------
+Function that will calculate several semantic similarities.
+The results of all these will be printed.
 
+Inputs  ---------------------------------------------------------------
+sentencePairs       A list containing pairs of sentences
+
+#Outputs -----------------------------------------------------------------------------
+No outputs
+
+Example usage of the function  -------------------------------------------------------
+See "main.py" file for an example.
+'''
 def task3SemanticRunner(sentencePairs):
     for i in range(0,len(sentencePairs)):
         s1 = sentencePairs[i][0]

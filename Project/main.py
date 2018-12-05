@@ -4,6 +4,7 @@ if version_info <= (3, 0):
     print("\nUse python version 3.0 or higher. ( Code was tested with 3.5.2)")
     print("EXITING")
     exit(1)
+#See if the user still needs to download the nltk book
 try:
     from nltk.corpus import brown
     from nltk.corpus import wordnet as wn
@@ -17,6 +18,9 @@ from task2_file import sentenceSimilarityForTask2, PartialSim, task2,get_wordnet
 from task5_file import sentenceSimilarityForTask5, task5
 from task4_file import task4
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
+'''
+Main function. This will be used to run all the tests.
+'''
 if __name__== "__main__":
     #Task 1: Build sentence pairs
     print("\nTask 1: Build sentence pairs -----------------------------------------------------------------------------------------------------------------")

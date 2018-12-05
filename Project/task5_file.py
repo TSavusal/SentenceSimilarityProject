@@ -4,24 +4,32 @@ from gensim.models import Word2Vec
 from nltk import word_tokenize
 import logging
 '''
-Sentence similarity with Word2Vec model
+Sentence similarity with Word2Vec model.
 
-Example usage of the function:
+Inputs  ------------------------------------------------------------------------------
+s1      sentence 1
+s2      sentence 2
+model   Word2Vec model
 
-# 1. Create two sentences
+#Outputs -----------------------------------------------------------------------------
+Outputs a float value that describes the similarity of the two sentences.
+
+
+Example usage of the function  -------------------------------------------------------
+#1. Create two sentences
 s1 = "Car is driving on the road"
 s2 = "Car is driving on the road"
 
-# 2. Create model
-#       Enable the line below if you want to show logging information during the model building
-#logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+#2.Create model
+# Enable the line below if you want to show logging information during the model building
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
-#       Load brown corpus
+# Load brown corpus
 sentences = brown.sents()
-#       Train model with brown corpus
+# Train model with brown corpus
 model = Word2Vec(sentences, min_count=1, workers=12)      #NOTE: Have Cython installed. Otherwise the number of workers will be 1. 
 
-#Calculate similarity
+#3.    Calculate similarity
 print(sentenceSimilarityForTask5(s1,s2,model))
 
 '''
@@ -56,7 +64,23 @@ def sentenceSimilarityForTask5(s1,s2,model):
     if items>0:
         avg = total / items
     return(avg)
-def task5(sentencePairs,model): 
+# --------------------------------------------------------------------------------------------------------------------------------------------------------
+'''
+Description  ---------------------------------------------------------------
+Function that will calculate several sentence similarities.
+The results of all these will be printed.
+
+Inputs  ---------------------------------------------------------------
+sentencePairs       A list containing pairs of sentences
+model               The model that will be used to evaluate the sentences.
+
+#Outputs -----------------------------------------------------------------------------
+Returns a Word2Vec model
+
+Example usage of the function  -------------------------------------------------------
+See "main.py" file for an example.
+'''
+def task5(sentencePairs,model):
     if model == None:
         # Build Word2Vec model
         model_path = get_tmpfile("word2vec_model/browncorpus.model")

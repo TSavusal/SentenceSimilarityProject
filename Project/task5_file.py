@@ -82,6 +82,7 @@ See "main.py" file for an example.
 '''
 def task5(sentencePairs,model):
     if model == None:
+        print("Task 5 NOTE: Building the model could take up to 60 seconds depending on the speed of your computer. Install Cython module to speed up the training.")
         # Build Word2Vec model
         model_path = get_tmpfile("word2vec_model/browncorpus.model")
         try:

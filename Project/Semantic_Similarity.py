@@ -32,7 +32,6 @@ def proper_synset(word_one,word_two):
                     maximum_similarity = similarity
                     pair = synset_one,synset_two
     else:
-        #Need to see as for some words there won't be a wordset, should make them as none
         pair = (None,None)
     return pair
 	
@@ -61,7 +60,7 @@ def depth_common_subsumer(synset_one,synset_two):
     elif synset_one == synset_two:
         height = max([hypernym[1] for hypernym in synset_one.hypernym_distances()])
     else:
-        #get the hypernym set of both the synset.
+        #get the hypernym set of both  of the synsets.
         hypernym_one = {hypernym_word[0]:hypernym_word[1] for hypernym_word in synset_one.hypernym_distances()}
         hypernym_two = {hypernym_word[0]:hypernym_word[1] for hypernym_word in synset_two.hypernym_distances()}
         common_subsumer = set(hypernym_one.keys()).intersection(set(hypernym_two.keys()))
@@ -203,18 +202,17 @@ def task3SemanticSim(sentence_one,sentence_two):
 	
 def intro():
 		print("Sentence similarity between two sentences\n")
-		print("\nEnter sentences:\n")
 		sent_one = input("Enter the first sentence : ")
 		sent_two = input("Enter the second sentence two : ")
-		prob_sim_sent = task3SemanticSim(sent_one , sent_two)
+		prob_sim_sent = task3SemanticSim(sent_one, sent_two)
 		print(prob_sim_sent)
 
 if __name__ == "__main__":  
-    print("-------------------Sentence Similarity--------------------------")
+    print("-------------------Semantic Similarity--------------------------")
     intro()
-    print("Want to try once again? if yes press 1 or else 0")
-    excited = int(input())
-    while(excited == 1):
+    print("Want to try once again? If yes enter 1, if not enter 0 : ")
+    againtry = int(input())
+    while(againtry == 1):
         intro()
-        print("Want to try once again?")
-        excited = int(input())
+        print("Want to try once again? If yes enter 1, if not enter 0 : ")
+        againtry = int(input())

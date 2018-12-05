@@ -10,14 +10,10 @@ This assumes you use python 3.5.2 version.
 
 pip3 install boto
 pip install nltk
-pip3 install cython                #Needed for task5. Gensim model training only uses 1 thread if you don't install cython.
-pip install gensim                #Task 5
 pip install matplotlib
 pip install smart_open
-conda install -c conda-forge msinttypes
-pip3 install pyqt5
-
-
+pip install gensim
+pip3 install cython
 pip3 install git+git://github.com/gsi-upm/sematch.git
 
 '''

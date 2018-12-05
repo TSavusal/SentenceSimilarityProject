@@ -4,26 +4,13 @@ if version_info <= (3, 0):
     print("\nUse python version 3.0 or higher. ( Code was tested with 3.5.2)")
     print("EXITING")
     exit(1)
-'''
-You may need to install these packages if you haven't already.
-This assumes you use python 3.5.2 version.
-
-pip3 install boto
-pip install nltk
-pip install matplotlib
-pip install smart_open
-pip install gensim
-pip3 install cython
-pip3 install git+git://github.com/gsi-upm/sematch.git
-
-'''
-# try:
-	# from nltk.book import *
-# except:
-	# import nltk
-	# print("You need to download the nltk book! Select it from the menu")
-	# nltk.download()
-import logging
+try:
+    from nltk.corpus import brown
+    from nltk.corpus import wordnet as wn
+except:
+	import nltk
+	print("Download the nltk book! Select it from the menu.\nWhen finished then close the menu.")
+	nltk.download()
 from Semantic_Similarity import task3SemanticRunner
 from task1_file import task1
 from task2_file import sentenceSimilarityForTask2, PartialSim, task2,get_wordnet_pos

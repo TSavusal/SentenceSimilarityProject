@@ -1,5 +1,3 @@
-
-# ----------------------------------------------------------------
 '''
 #Task description:
 First, you should construct your own database of sentences.

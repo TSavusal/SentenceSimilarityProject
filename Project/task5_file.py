@@ -2,7 +2,7 @@ from nltk.corpus import brown
 from gensim.test.utils import get_tmpfile
 from gensim.models import Word2Vec
 from nltk import word_tokenize
-#sentenceSimilarityForTask5, task5
+import logging
 '''
 Sentence similarity with Word2Vec model
 
@@ -38,7 +38,7 @@ def sentenceSimilarityForTask5(s1,s2,model):
     # s1_tokenized = [word for word in s1_tokenized if word not in stopwords.words('english')]
     # s2_tokenized = [word for word in s2_tokenized if word not in stopwords.words('english')]
     
-    #NOTE: Stop words were not removed. Removing stop words seems to have a negative effect on the similarity scores for Word2Vec model.
+    #NOTE: Stop words were not removed since work2Vec vector can take into account the similarity of the "a" and "the" words too.
     #Words at the bottom of the corpus were shown higher similarity scores than expected.
 
     #Stopword removal needed    --> no
@@ -80,4 +80,6 @@ def task5(sentencePairs):
     for i in range(0,len(sentencePairs)):
         s1 = sentencePairs[i][0]
         s2 = sentencePairs[i][1]
-        print("Similarity2: " + str(sentenceSimilarityForTask5(s1,s2,model)).ljust(18) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print
+        sim = sentenceSimilarityForTask5(s1,s2,model)
+        sim = (round(sim,3))
+        print("Similarity2: " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print

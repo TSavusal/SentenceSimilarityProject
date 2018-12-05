@@ -33,15 +33,6 @@ from gensim.models import Word2Vec
 from gensim.test.utils import get_tmpfile
 import logging
 from Semantic_Similarity import task3SemanticSim
-#nltk.download()                #This must be run before the code works!
-#from nltk.book import *
-
-
-
-#import boto3
-#import gensim
-#from gensim.models import Word2Vec
-#gensim.models.Word2Vec
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 '''
 Convert to compatible pos tag.

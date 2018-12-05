@@ -193,7 +193,7 @@ def word_order_similarity(sentence_one , sentence_two):
         j+=1
     return 1.0 - (np.linalg.norm(r1 - r2) / np.linalg.norm(r1 + r2))
 	
-def main(sentence_one,sentence_two):
+def task3SemanticSim(sentence_one,sentence_two):
     sent_set_one = set(filter(lambda x : not (x == '.' or x == '?') , word_tokenize(sentence_one)))
     sent_set_two = set(filter(lambda x : not (x == '.' or x == '?') , word_tokenize(sentence_two)))
     joint_word_set = list(sent_set_one.union(sent_set_two))
@@ -202,7 +202,7 @@ def main(sentence_one,sentence_two):
     return sentence_similarity
 #sentence_one = "I play hockey"
 #sentence_two = "who are you?"
-#print(main(sentence_one,sentence_two))\
+#print(task3SemanticSim(sentence_one,sentence_two))\
 
 def file_sem(f):
     contents = open(f).read().strip()
@@ -215,7 +215,7 @@ def file_sem(f):
     while(i < no_of_sentences):
         j = i
         while(j < no_of_sentences):
-            sent_sim_matr[i][j] = main(ind_sentences[i],ind_sentences[j])
+            sent_sim_matr[i][j] = task3SemanticSim(ind_sentences[i],ind_sentences[j])
             sent_sim_matr[j][i] = sent_sim_matr[i][j]
             j+=1
         i+=1
@@ -239,7 +239,7 @@ def intro():
     elif option == 2:
         sent_one = input("Enter the first sentence : ")
         sent_two = input("Enter the second sentence two :")
-        prob_sim_sent = main(sent_one , sent_two)
+        prob_sim_sent = task3SemanticSim(sent_one , sent_two)
         print(prob_sim_sent)
         #print("Similarity between\n"+sent_one+"\n"+sent_two+"\n\n is : ",prob_sim_sent)
     else:

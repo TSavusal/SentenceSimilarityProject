@@ -16,25 +16,32 @@ pip install matplotlib
 pip install smart_open
 conda install -c conda-forge msinttypes
 pip3 install pyqt5
-'''    
-    
-from nltk import pos_tag
-#nltk.download()                #This must be run before the code works!
-#from nltk.book import *
+'''
+
+# try:
+	# from nltk.book import *
+# except:
+	# import nltk
+	# print("You need to download the nltk book! Select it from the menu")
+	# nltk.download()
 from nltk.corpus import wordnet as wn
 from nltk import word_tokenize
 from nltk.corpus import stopwords
+from nltk import pos_tag
+from nltk.corpus import brown
+from gensim.models import Word2Vec
+from gensim.test.utils import get_tmpfile
+import logging
+from Semantic_Similarity import task3SemanticSim
+#nltk.download()                #This must be run before the code works!
+#from nltk.book import *
+
 
 
 #import boto3
 #import gensim
 #from gensim.models import Word2Vec
 #gensim.models.Word2Vec
-import logging
-from nltk.corpus import brown
-from gensim.models import Word2Vec
-from gensim.test.utils import get_tmpfile
-
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 '''
 Convert to compatible pos tag.
@@ -200,9 +207,7 @@ e.g.   S = (0.5 + 0.6 + 0.7) /3   #Here 3 is the number of words in S1
 Takes a list of sentencepairs as input. This list was constructed in fucntion: task1()
 Prints the similarity scores for each sentence pair.
 '''
-def task2(sentencePairs):
-    #similarity_method = "wupalmer_sim"
-    similarity_method = "path_sim"
+def task2(sentencePairs,similarity_method):
     for i in range(0,len(sentencePairs)):
         s1 = sentencePairs[i][0]
         s2 = sentencePairs[i][1]
@@ -287,16 +292,28 @@ def task5(sentencePairs):
         s2 = sentencePairs[i][1]
         print("Similarity2: " + str(sentenceSimilarityForTask5(s1,s2,model)).ljust(18) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
+def task3SemanticRunner(sentencePairs):
+    for i in range(0,len(sentencePairs)):
+        s1 = sentencePairs[i][0]
+        s2 = sentencePairs[i][1]
+        print("Similarity3 (Semantic): " + str(task3SemanticSim(s1,s2)).ljust(18) + " for sentence pair: "+ str(sentencePairs[i]))
+# --------------------------------------------------------------------------------------------------------------------------------------------------------
 if __name__== "__main__":
     #Task 1: Build sentence pairs
     print("\nTask 1: Build sentence pairs -----------------------------------------------------------------------------------------------------------------")
     sentencePairs=task1()
     
     #Task 2: Calculate similarity for the sentence pairs
-    print("\nTask 2: Calculate similarity for the sentence pairs ------------------------------------------------------------------------------------------")
-    task2(sentencePairs)
-    
+    print("\nTask 2: Calculate similarity ------------------------------------------------------------------------------------------")
+    #similarity_method = "wupalmer_sim"
+    #similarity_method = "path_sim"
+    task2(sentencePairs,"path_sim")		#possible metrics: "wupalmer_sim"  or "path_sim"
+
+    #Task 3
+    print("\nTask 3: Calculate similarity for the sentence pairs ------------------------------------------------------------------------------------------")
+    task3SemanticRunner(sentencePairs)
+
     #Task 5: Word2Vec for calculating sentence similarity. (Word2Vec)
     print("\nTask 5: Word2Vec for calculating sentence similarity -------------------------------------------------------------------------------------------")
     print("Task 5 NOTE: Building the model could take up to 60 seconds depending on the speed of your computer. Install Cython module to speed up the training.")
-    task5(sentencePairs)
+    #task5(sentencePairs)

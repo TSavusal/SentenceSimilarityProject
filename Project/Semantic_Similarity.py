@@ -166,15 +166,17 @@ def task3SemanticSim(sentence_one,sentence_two):
     sent_set_one = set(filter(lambda x : not (x == '.' or x == '?') , word_tokenize(sentence_one)))
     sent_set_two = set(filter(lambda x : not (x == '.' or x == '?') , word_tokenize(sentence_two)))
     joint_word_set = list(sent_set_one.union(sent_set_two))
-    #Need to get the dictionary to have the corresponding indexes of the joint_word_set. 
+    #Need to get the dictionary to have the corresponding indexes of the joint_word_set.
     sentence_similarity = (CONST_DELTA * sent_sim(sent_set_one,sent_set_two,list(joint_word_set))) + ((1.0 - CONST_DELTA) * word_order_similarity(sentence_one,sentence_two))
     return sentence_similarity
 	
 def intro():
 		print("Sentence similarity between two sentences\n")
-		sent_one = input("Enter the first sentence : ")
-		sent_two = input("Enter the second sentence two : ")
+		sent_one = input("Enter the first sentence to compare similarity : ")
+		sent_two = input("Enter the second sentence : ")
+		print("Calculating...\n")
 		prob_sim_sent = task3SemanticSim(sent_one, sent_two)
+		print("Distance: ")
 		print(prob_sim_sent)
 
 if __name__ == "__main__":  

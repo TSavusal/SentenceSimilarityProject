@@ -16,8 +16,11 @@ pip install matplotlib
 pip install smart_open
 conda install -c conda-forge msinttypes
 pip3 install pyqt5
-'''
 
+
+pip3 install git+git://github.com/gsi-upm/sematch.git
+
+'''
 # try:
 	# from nltk.book import *
 # except:
@@ -33,6 +36,7 @@ from gensim.models import Word2Vec
 from gensim.test.utils import get_tmpfile
 import logging
 from Semantic_Similarity import task3SemanticSim
+from sematch.semantic.similarity import YagoTypeSimilarity
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 '''
 Convert to compatible pos tag.

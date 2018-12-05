@@ -42,9 +42,10 @@ if __name__== "__main__":
     sentencePairs=task1()
     #Task 2: Calculate similarity for the sentence pairs
     print("\nTask 2: Calculate similarity ------------------------------------------------------------------------------------------")
-    #similarity_method = "wupalmer_sim"
-    #similarity_method = "path_sim"
+    print("\nTask 2a: path_sim metric")
     task2(sentencePairs,"path_sim")		#possible metrics: "wupalmer_sim"  or "path_sim"
+    print("\nTask 2b: Wu-Palmer metric")
+    task2(sentencePairs,"wupalmer_sim")		#possible metrics: "wupalmer_sim"  or "path_sim"
 
     #Task 3
     print("\nTask 3: Calculate similarity for the sentence pairs ------------------------------------------------------------------------------------------")

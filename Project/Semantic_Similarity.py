@@ -13,6 +13,11 @@ CONST_ETA = 0.4
 total_words = 0
 word_freq_brown = {}
 
+def task3SemanticRunner(sentencePairs):
+    for i in range(0,len(sentencePairs)):
+        s1 = sentencePairs[i][0]
+        s2 = sentencePairs[i][1]
+        print("Similarity3 (Semantic): " + str(task3SemanticSim(s1,s2)).ljust(18) + " for sentence pair: "+ str(sentencePairs[i]))
 def proper_synset(word_one,word_two):
     pair = (None,None)
     maximum_similarity = -1

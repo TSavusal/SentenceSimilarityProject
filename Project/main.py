@@ -25,43 +25,10 @@ pip3 install git+git://github.com/gsi-upm/sematch.git
 	# nltk.download()
 import logging
 from Semantic_Similarity import task3SemanticSim
-from task5_file import sentenceSimilarityForTask5, task5
+from task1_file import task1
 from task2_file import sentenceSimilarityForTask2, PartialSim, task2,get_wordnet_pos
+from task5_file import sentenceSimilarityForTask5, task5
 from task4_file import task4
-# ----------------------------------------------------------------
-'''
-#Task description:
-First, you should construct your own database of sentences.
-Ideally, this database should be constituted of pair of sentences.
-These pair of sentences should be ordered in descending order for similarity.
-
-#Function Description:
-Function will return a list of tuples. Each unit in the list contains 2 sentences.
-If you need to loop though the sentence pairs then see function task2() for an example
-'''
-def task1():
-    sentencePairs=[]
-    #1.
-    sent1 = "Car is driving on the road"
-    sent2 = "Car is driving on the road"
-    sentencePairs.append([sent1,sent2])   #append the first sentence pair
-    #2.
-    sent1 = "Van is driving on the road"
-    sent2 = "Car is driving on the road"
-    sentencePairs.append([sent1,sent2])   #append the 2nd sentence pair
-    #3.
-    sent1 = "Van is travelling on the road"
-    sent2 = "Car is driving on the road"
-    sentencePairs.append([sent1,sent2])   #append the 2nd sentence pair
-    #4. 
-    sent1 = "Van is travelling on the highway"
-    sent2 = "Car is driving on the road"
-    sentencePairs.append([sent1,sent2])   #append the 2nd sentence pair
-    #5.
-    sent1 = "Van is commuting on a highway"
-    sent2 = "Car is driving on the road"
-    sentencePairs.append([sent1,sent2])   #append the 2nd sentence pair
-    return(sentencePairs)
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 def task3SemanticRunner(sentencePairs):
     for i in range(0,len(sentencePairs)):
@@ -73,12 +40,12 @@ if __name__== "__main__":
     #Task 1: Build sentence pairs
     print("\nTask 1: Build sentence pairs -----------------------------------------------------------------------------------------------------------------")
     sentencePairs=task1()
-    
     #Task 2: Calculate similarity for the sentence pairs
     print("\nTask 2: Calculate similarity ------------------------------------------------------------------------------------------")
-    #similarity_method = "wupalmer_sim"
-    #similarity_method = "path_sim"
+    print("\nTask 2a: path_sim metric")
     task2(sentencePairs,"path_sim")		#possible metrics: "wupalmer_sim"  or "path_sim"
+    print("\nTask 2b: Wu-Palmer metric")
+    task2(sentencePairs,"wupalmer_sim")		#possible metrics: "wupalmer_sim"  or "path_sim"
 
     #Task 3
     print("\nTask 3: Calculate similarity for the sentence pairs ------------------------------------------------------------------------------------------")

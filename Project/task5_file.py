@@ -56,30 +56,31 @@ def sentenceSimilarityForTask5(s1,s2,model):
     if items>0:
         avg = total / items
     return(avg)
-def task5(sentencePairs): 
-    # Build Word2Vec model
-    model_path = get_tmpfile("word2vec_model/browncorpus.model")
-    try:
-        #Load a model if it exists
-        model = Word2Vec.load(model_path)
-    except FileNotFoundError:
-        #Enable the line below if you want to show logging information during the model building
-        #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
-        
-        #Load brown corpus
-        sentences = brown.sents()
-        #Train model with brown corpus
-        model = Word2Vec(sentences, min_count=1, workers=12)      #NOTE: Have Cython installed. Otherwise the number of workers will be 1. 
-        
-        # There seems to be a problem when trying to save a gensim model.
-        # There is an unresolved issue regarding this in github: https://github.com/RaRe-Technologies/gensim/issues/1129
-        # Model saving is disabled due to this reason
-        #model.save(model_path)
-
-    #Evaluate sentences with the model
+def task5(sentencePairs,model): 
+    if model == None:
+        # Build Word2Vec model
+        model_path = get_tmpfile("word2vec_model/browncorpus.model")
+        try:
+            #Load a model if it exists
+            model = Word2Vec.load(model_path)
+        except FileNotFoundError:
+            #Enable the line below if you want to show logging information during the model building
+            #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+            
+            #Load brown corpus
+            sentences = brown.sents()
+            #Train model with brown corpus
+            model = Word2Vec(sentences, min_count=1, workers=12)      #NOTE: Have Cython installed. Otherwise the number of workers will be 1. 
+            
+            # There seems to be a problem when trying to save a gensim model.
+            # There is an unresolved issue regarding this in github: https://github.com/RaRe-Technologies/gensim/issues/1129
+            # Model saving is disabled due to this reason
+            #model.save(model_path)
+        #Evaluate sentences with the model
     for i in range(0,len(sentencePairs)):
         s1 = sentencePairs[i][0]
         s2 = sentencePairs[i][1]
         sim = sentenceSimilarityForTask5(s1,s2,model)
         sim = (round(sim,3))
         print("Similarity2: " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print
+    return(model)

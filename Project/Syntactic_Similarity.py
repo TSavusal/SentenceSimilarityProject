@@ -1,9 +1,9 @@
-import nltk, string
+import nltk, string, sklearn
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 
 def task3SyntacticSim(s1,s2):
-	
+
 	'''remove punctuation, lowercase, stem'''
 	nltk.download('punkt') # if necessary
 	stemmer = nltk.stem.porter.PorterStemmer()
@@ -11,12 +11,12 @@ def task3SyntacticSim(s1,s2):
 	stem_tokens = nltk.word_tokenize(text.lower().translate(remove_punctuation_map))
 	vectorizer = TfidfVectorizer(tokenizer=normalize, stop_words='english')
 	tfidf = vectorizer.fit_transform([s1, s2])
-    return ((tfidf * tfidf.T).A)[0,1]
+	return ((tfidf * tfidf.T).A)[0,1]
 	
 def intro():
 		print("Syntactic similarity between two sentences\n")
 		sent_one = input("Enter the first sentence to compare similarity : ")
-		sent_two = input("Enter the second sentence : ")
+		sent_two = input("Enter the second sentence to compare similarity : ")
 		print("Calculating...\n")
 		prob_sim_sent = task3SyntacticSim(sent_one, sent_two)
 		print("Distance: ")

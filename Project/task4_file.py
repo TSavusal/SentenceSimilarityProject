@@ -1,4 +1,4 @@
-from task2_file import  get_wordnet_pos
+from task2_file import get_wordnet_pos
 from sematch.semantic.similarity import YagoTypeSimilarity
 from nltk import word_tokenize
 from nltk.corpus import stopwords

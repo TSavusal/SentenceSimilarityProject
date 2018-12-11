@@ -4,7 +4,7 @@ import numpy as np
 from itertools import chain
 from collections import Counter
 import nltk
-from nltk.util import ngrams # This is the ngram magic.
+from nltk.util import ngrams
 
 NGRAM = 4
 

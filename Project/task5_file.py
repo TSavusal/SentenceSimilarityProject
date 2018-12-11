@@ -2,6 +2,8 @@ from nltk.corpus import brown
 from gensim.test.utils import get_tmpfile
 from gensim.models import Word2Vec
 from nltk import word_tokenize
+from gensim.models import KeyedVectors
+from nltk.corpus import stopwords
 import logging
 '''
 Sentence similarity with Word2Vec model.
@@ -43,8 +45,8 @@ def sentenceSimilarityForTask5(s1,s2,model):
     s2_tokenized=word_tokenize(s2)
 
     # Remove stop words
-    # s1_tokenized = [word for word in s1_tokenized if word not in stopwords.words('english')]
-    # s2_tokenized = [word for word in s2_tokenized if word not in stopwords.words('english')]
+    #s1_tokenized = [word for word in s1_tokenized if word not in stopwords.words('english')]
+    #s2_tokenized = [word for word in s2_tokenized if word not in stopwords.words('english')]
     
     #NOTE: Stop words were not removed since work2Vec vector can take into account the similarity of the "a" and "the" words too.
     #Words at the bottom of the corpus were shown higher similarity scores than expected.
@@ -78,30 +80,38 @@ model               The model that will be used to evaluate the sentences.
 Returns a Word2Vec model
 
 Example usage of the function  -------------------------------------------------------
-See "main.py" file for an example.
+See the main section at the bottom of this file.
 '''
 def task5(sentencePairs,model):
     if model == None:
         print("Task 5 NOTE: Building the model could take up to 60 seconds depending on the speed of your computer. Install Cython module to speed up the training.")
-        # Build Word2Vec model
-        model_path = get_tmpfile("word2vec_model/browncorpus.model")
+        # Build Word2Vec model is its not saved to disk already.
+        name_of_the_model = "word2VecModel.model"
         try:
             #Load a model if it exists
-            model = Word2Vec.load(model_path)
+            model = KeyedVectors.load(name_of_the_model, mmap='r')
         except FileNotFoundError:
             #Enable the line below if you want to show logging information during the model building
             #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
             
             #Load brown corpus
             sentences = brown.sents()
-            #Train model with brown corpus
-            model = Word2Vec(sentences, min_count=1, workers=12)      #NOTE: Have Cython installed. Otherwise the number of workers will be 1. 
             
+            #Train model with brown corpus
+            model = Word2Vec(sentences, min_count=1, workers=12)      #NOTE: Have Cython installed. Otherwise training could be slow
+            # SAVE MODEL:
+            # model.save(model_path)
             # There seems to be a problem when trying to save a gensim model.
-            # There is an unresolved issue regarding this in github: https://github.com/RaRe-Technologies/gensim/issues/1129
-            # Model saving is disabled due to this reason
-            #model.save(model_path)
-        #Evaluate sentences with the model
+            # An unresolved issue is found on github: https://github.com/RaRe-Technologies/gensim/issues/1129
+            
+            #Using alternative saving method for saving (found here: https://github.com/RaRe-Technologies/gensim/issues/1129#issuecomment-326728974) 
+            print("Attemtpting to save model into file: "+str(name_of_the_model))
+            import dill
+            #Save your model
+            with open(name_of_the_model,'wb') as f:
+              dill.dump(model, f)
+            print("The model was saved")
+    #Evaluate sentences with the model
     for i in range(0,len(sentencePairs)):
         s1 = sentencePairs[i][0]
         s2 = sentencePairs[i][1]
@@ -109,3 +119,20 @@ def task5(sentencePairs,model):
         sim = (round(sim,3))
         print("Similarity2: " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print
     return(model)
+# --------------------------------------------------------------------------------------------------------------------------------------------------------
+'''
+Main function. Wil be used when 'task5_file.py' is run
+'''
+if __name__== "__main__":
+    # Download requirements	 ---------------------------------------------------------------------------------------------------------------------------------
+    from task0_download_reqs import download_requirements
+    download_requirements()
+    # Import modules	 -------------------------------------------------------------------------------------------------------------------------------------
+    from Semantic_Similarity import task3SemanticRunner
+    from task1_file import task1
+    #Task 1: Build sentence pairs
+    print("\nTask 1: Build sentence pairs ----------------------------------------------------------------------------------------------------------------")
+    sentencePairs=task1()
+    #Task 5: Word2Vec for calculating sentence similarity. (Word2Vec)
+    print("\nTask 5: Word2Vec for calculating sentence similarity ----------------------------------------------------------------------------------------")
+    model = task5(sentencePairs,None)

@@ -1,4 +1,3 @@
-import ast
 import re
 import math
 import numpy as np
@@ -14,8 +13,13 @@ re_stripper_alpha = re.compile('[^a-zA-Z]+')
 re_stripper_naive = re.compile('[^a-zA-Z\.\n]')
 
 splitter_naive = lambda x: re_sent_ends_naive.split(re_stripper_naive.sub(' ', x))
-
 sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
+
+def get_tuples_nosentences(txt):
+    """Get tuples that ignores all punctuation (including sentences)."""
+    if not txt: return None
+    ng = ngrams(re_stripper_alpha.sub(' ', txt).split(), NGRAM)
+    return list(ng)
 
 def get_tuples_nltk_punkt_sentences(txt):
     """Get tuples."""
@@ -41,25 +45,18 @@ def cosine_similarity_ngrams(a, b):
     return float(numerator) / denominator
 
 def task3NgramSim(sent):
-	paragraph = sent
-	print(paragraph)
-	_ = get_tuples_nltk_punkt_sentences(paragraph);print("Number of N-grams (nltk sentences):", len(_));_
+	print(sent)
+	_ = get_tuples_nltk_punkt_sentences(sent);print("Number of N-grams (nltk sentences):", len(_));_
 
-	a = get_tuples_nosentences(paragraph)
-	b = get_tuples_nosentences(paragraph)
+	a = get_tuples_nosentences(sent)
+	b = get_tuples_nosentences(sent)
 	print("Cosine distance: {}".format(cosine_similarity_ngrams(a,b)))
 	
 def intro():
 	print("Ngram similarity between two sentences\n")
-	sentenceList = []
-	firstName = input("Enter the two sentences to compare similarity, split with a comma: ")
-	nameSplit = tuple(firstName.split(","))
-	sentenceList += nameSplit
-	sent = sentenceList
+	sent = raw_input("Enter the two sentences to compare similarity, split with a punctuation point: ")
 	print("Calculating...\n")
 	prob_sim_sent = task3NgramSim(sent)
-	print("Distance: ")
-	print(prob_sim_sent)
 	
 if __name__ == "__main__":  
     print("-------------------Ngram Similarity--------------------------")

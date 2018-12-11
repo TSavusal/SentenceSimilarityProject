@@ -1,4 +1,3 @@
-sentenceA,sentenceB
 A cat is playing with a stuffed bear,A cat is playing with a toy
 The sheep is grazing on the grass,An animal is grazing in a field
 A girl is riding a horse,A girl is riding a brown horse 

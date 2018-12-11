@@ -1,12 +1,13 @@
-# --------------------------------------------------------------------------------------------------------------------------------------------------------
 '''
-#Task description:
-We have a database of sentence pairs that has been edited and reduced to 5 occurences (sentencepairs.txt).
-Using the same format as in Task 1, we manually add the sentence pairs to array and iterate through these similar to Task 2.
-The results are then compared to the original set of sentences provided in Task 1.
+Description  ------------------------------------------------------------------------
+Function creates a list that contains paired sentences taken from the database
+'sentencepairs.txt'.
 
-#Function Description:
-If you need to loop though the sentence pairs then see function task2() for an example
+Inputs  -----------------------------------------------------------------------------
+No inputs
+
+#Outputs ----------------------------------------------------------------------------
+Returns a list containing sentence pairs.
 '''
 def task6():
     sentencePairs=[]

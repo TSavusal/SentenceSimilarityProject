@@ -5,19 +5,22 @@ from nltk.corpus import stopwords
 from nltk import pos_tag
 # ----------------------------------------------------------------
 '''
-#Task 4 Description:
-Calculate sentence similarity Sim(s,t) using YAGO concepts.
+Description  ------------------------------------------------------------------------
+Functions will define YAGO concepts and calculate similarities for the given
+sentence pair.
+task4Yago-function calculates similarity score between sent 1 and sent 2 (very
+similar to PartialSim-function).
 
-#Function Description:
-Functions will define YAGO concepts and calculate similarities for the given sentence pair.
+Inputs  -----------------------------------------------------------------------------
+task4-function takes a list of sentencepairs as input (as constructed in
+function task1()).
+task4Yago-function takes 3 inputs: sentence1, sentence2 and method defined either
+"wpath" or "wpath_graph". All these inputs need to be in str-format.
 
-task4-function prints the similarity scores for each sentence pair using YAGO concepts (wpath and wpath_graph).
-task4-function takes a list of sentencepairs as input (as constructed in function task1()).
-
-task4Yago-function calculates similarity score between sent 1 and sent 2 (very similar to PartialSim-function).
-task4Yago-function takes input in following format:  str, str, str
-task4Yago-function returns the similarity value in numeric format.
-
+#Outputs ----------------------------------------------------------------------------
+task4-function prints the similarity scores for each sentence pair using YAGO
+concepts (wpath and wpath_graph).
+task4Yago-function returns the similarity value in numeric format (between 1 and 0).
 '''
 #Load YAGO
 sim_yago = YagoTypeSimilarity()

@@ -6,7 +6,7 @@ from collections import Counter
 import nltk
 from nltk.util import ngrams
 
-NGRAM = 2
+NGRAM = 0.5
 
 re_stripper_alpha = re.compile('[^a-zA-Z]+')
 sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')

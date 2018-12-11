@@ -6,7 +6,7 @@ from collections import Counter
 import nltk
 from nltk.util import ngrams
 
-NGRAM = 4
+NGRAM = 2
 
 re_stripper_alpha = re.compile('[^a-zA-Z]+')
 sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
@@ -40,19 +40,23 @@ def cosine_similarity_ngrams(a, b):
         return 0.0
     return float(numerator) / denominator
 
-def task3NgramSim(sent):
-	print(sent)
-	_ = get_tuples_nltk_punkt_sentences(sent);print("Number of N-grams (nltk sentences):", len(_));_
+def task3NgramSim(sent1,sent2):
+	print(sent1)
+	_ = get_tuples_nltk_punkt_sentences(sent1);print("Number of N-grams (first sentence):", len(_));_
+	print(sent2)
+	_ = get_tuples_nltk_punkt_sentences(sent2);print("Number of N-grams (second sentence):", len(_));_
 
-	a = get_tuples_nosentences(sent)
-	b = get_tuples_nosentences(sent)
-	print("Ngram distance: {}".format(cosine_similarity_ngrams(a,b)))
+	a = get_tuples_nosentences(sent1)
+	b = get_tuples_nosentences(sent2)
+	print("Ngram distance: {}".format(cosine_similarity_ngrams(a, b)))
 	
 def intro():
 	print("Ngram similarity between two sentences\n")
-	sent = raw_input("Enter the two sentences to compare similarity, split with a punctuation point: ")
+	"""sent = raw_input("Enter the two sentences to compare similarity, split with a punctuation point: ")"""
+	sent_one = raw_input("Enter the first sentence to compare similarity : ")
+	sent_two = raw_input("Enter the second sentence to compare similarity : ")
 	print("Calculating...\n")
-	prob_sim_sent = task3NgramSim(sent)
+	prob_sim_sent = task3NgramSim(sent_one,sent_two)
 	
 if __name__ == "__main__":  
     print("-------------------Ngram Similarity--------------------------")

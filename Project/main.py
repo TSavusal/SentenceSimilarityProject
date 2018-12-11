@@ -40,7 +40,7 @@ if __name__== "__main__":
     task5(sentencePairs,model)
 
 	#Task 6: Build and use dataset sentence pairs in tasks 2,3,4 and 5
-    sentencePairs2=task6()
+    sentencePairs2=task6("sentencepairs.txt")
 
     print("\nTask 6 sentence similarity using method from Task 2: -----------------------------------------------------------------------------------------")
     print("\npath_sim metric")

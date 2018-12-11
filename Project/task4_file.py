@@ -6,21 +6,16 @@ from nltk import pos_tag
 # ----------------------------------------------------------------
 '''
 Description  ------------------------------------------------------------------------
-Functions will define YAGO concepts and calculate similarities for the given
-sentence pair.
-task4Yago-function calculates similarity score between sent 1 and sent 2 (very
-similar to PartialSim-function).
+Function will define YAGO concepts and calculate calculates similarity score between
+sentence 1 and sentence 2 (very similar to PartialSim-function).
 
-Inputs  -----------------------------------------------------------------------------
-task4-function takes a list of sentencepairs as input (as constructed in
-function task1()).
-task4Yago-function takes 3 inputs: sentence1, sentence2 and method defined either
-"wpath" or "wpath_graph". All these inputs need to be in str-format.
+Inputs  ------------------------------------------------------------------------------
+s1      sentence 1 (string)
+s2      sentence 2 (string)
+method  "wpath" or "wpath_graph" (string)
 
-#Outputs ----------------------------------------------------------------------------
-task4-function prints the similarity scores for each sentence pair using YAGO
-concepts (wpath and wpath_graph).
-task4Yago-function returns the similarity value in numeric format (between 1 and 0).
+Outputs ----------------------------------------------------------------------------
+Returns the similarity value in numeric format (between 1 and 0).
 '''
 #Load YAGO
 sim_yago = YagoTypeSimilarity()
@@ -89,6 +84,17 @@ def task4Yago(s1,s2,method):
     else:
         s1_total = 0
     return (round(s1_total,3))
+'''
+Description  ------------------------------------------------------------------------
+Function will iterate through sentencepairs and print similarity score between
+sentences using task4Yago-function.
+
+Inputs  ------------------------------------------------------------------------------
+sentencePairs - array containing sentence pairs ([[sentence1, sentence2],[sentence1, sentence2], ...])
+
+Outputs ----------------------------------------------------------------------------
+None
+'''
 def task4(sentencePairs):
     #Measuring YAGO concept similarity through WordNet taxonomy and corpus based information content
     print("\nMeasuring YAGO concept similarity through WordNet taxonomy and corpus based information content:\n")

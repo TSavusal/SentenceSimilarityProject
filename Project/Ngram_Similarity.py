@@ -8,11 +8,7 @@ from nltk.util import ngrams
 
 NGRAM = 4
 
-re_sent_ends_naive = re.compile(r'[.\n]')
 re_stripper_alpha = re.compile('[^a-zA-Z]+')
-re_stripper_naive = re.compile('[^a-zA-Z\.\n]')
-
-splitter_naive = lambda x: re_sent_ends_naive.split(re_stripper_naive.sub(' ', x))
 sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
 
 def get_tuples_nosentences(txt):
@@ -50,7 +46,7 @@ def task3NgramSim(sent):
 
 	a = get_tuples_nosentences(sent)
 	b = get_tuples_nosentences(sent)
-	print("Cosine distance: {}".format(cosine_similarity_ngrams(a,b)))
+	print("Ngram distance: {}".format(cosine_similarity_ngrams(a,b)))
 	
 def intro():
 	print("Ngram similarity between two sentences\n")

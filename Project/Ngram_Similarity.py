@@ -48,7 +48,8 @@ def task3NgramSim(sent1,sent2):
 
 	a = get_tuples_nosentences(sent1)
 	b = get_tuples_nosentences(sent2)
-	print("Ngram distance: {}".format(cosine_similarity_ngrams(a, b)))
+	"""print("Ngram distance: {}".format(cosine_similarity_ngrams(a, b)))"""
+	return cosinecosine_similarity_ngrams(a, b)
 	
 def intro():
 	print("Ngram similarity between two sentences\n")

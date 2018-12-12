@@ -8,10 +8,6 @@ sent1="dog"
 sent2="cat"
 
 def task3SyntacticSim(sent1,sent2):
-	"""<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/master"""
 	tfidf = vectorizer.fit_transform([sent1, sent2])
 	return ((tfidf * tfidf.T).A)[0,1]
 

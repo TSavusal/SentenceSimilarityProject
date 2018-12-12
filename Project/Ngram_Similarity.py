@@ -5,6 +5,10 @@ from itertools import chain
 from collections import Counter
 import nltk
 from nltk.util import ngrams
+from sys import warnoptions as sys_warnoptions
+from warnings import simplefilter as warnings_simplefilter
+if not sys_warnoptions:     #Hide warnings from sklearn package
+    warnings_simplefilter("ignore")
 
 #NGRAM = 4
 
@@ -62,13 +66,15 @@ def task3NgramSim(sent1,sent2,ngramLen):
 	return cosine_similarity_ngrams(a, b)
 	
 def intro():
-	print("Ngram similarity between two sentences\n")
-	"""sent = raw_input("Enter the two sentences to compare similarity, split with a punctuation point: ")"""
-	sent_one = raw_input("Enter the first sentence to compare similarity : ")
-	sent_two = raw_input("Enter the second sentence to compare similarity : ")
-	print("Calculating...\n");ngramLen = 0.5
-	prob_sim_sent = task3NgramSim(sent_one,sent_two)
-	
+    print("Ngram similarity between two sentences\n")
+    """sent = input("Enter the two sentences to compare similarity, split with a punctuation point: ")"""
+    sent_one = input("Enter the first sentence to compare similarity : ")
+    sent_two = input("Enter the second sentence to compare similarity : ")
+    print("Calculating...\n")
+    ngramLen = 1
+    prob_sim_sent = task3NgramSim(sent_one,sent_two,ngramLen)
+    print("N-GRAM Similarity: "+str(prob_sim_sent))
+
 if __name__ == "__main__":  
     print("-------------------Ngram Similarity--------------------------")
     intro()

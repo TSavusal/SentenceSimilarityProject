@@ -3,7 +3,10 @@ import string
 import sklearn
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
-
+from sys import warnoptions as sys_warnoptions
+from warnings import simplefilter as warnings_simplefilter
+if not sys_warnoptions:     #Hide warnings from sklearn package
+    warnings_simplefilter("ignore")
 
 def task3SyntacticRunner(sentencePairs):
     for i in range(0,len(sentencePairs)):
@@ -29,8 +32,8 @@ def normalize(text):
 
 def intro():
 	print("Syntactic similarity between two sentences\n")
-	sent_one = raw_input("Enter the first sentence to compare similarity : ")
-	sent_two = raw_input("Enter the second sentence to compare similarity : ")
+	sent_one = input("Enter the first sentence to compare similarity : ")
+	sent_two = input("Enter the second sentence to compare similarity : ")
 	print("Calculating...\n")
 	prob_sim_sent = task3SyntacticSim(sent_one, sent_two)
 	print("Distance: ")
@@ -40,8 +43,8 @@ if __name__ == "__main__":
     print("-------------------Syntactic Similarity--------------------------")
     intro()
     print("Want to try once again? If yes enter 1, if not enter 0 : ")
-    againtry = int(raw_input())
+    againtry = int(input())
     while(againtry == 1):
         intro()
         print("Want to try once again? If yes enter 1, if not enter 0 : ")
-        againtry = int(raw_input())
+        againtry = int(input())

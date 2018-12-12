@@ -3,6 +3,10 @@ from nltk import sent_tokenize
 from nltk.corpus import wordnet as wn
 import numpy as np
 from nltk.corpus import brown
+from sys import warnoptions as sys_warnoptions
+from warnings import simplefilter as warnings_simplefilter
+if not sys_warnoptions:     #Hide warnings from sklearn package
+    warnings_simplefilter("ignore")
 import math
 CONST_PHI = 0.2
 CONST_BETA = 0.45

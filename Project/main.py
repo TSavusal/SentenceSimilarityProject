@@ -18,7 +18,7 @@ from warnings import simplefilter as warnings_simplefilter
 Main function. This will be used to run all the tests.
 '''
 if __name__== "__main__":
-    if not sys_warnoptions:     #Hide warnings from sklern package
+    if not sys_warnoptions:     #Hide warnings from sklearn package
         warnings_simplefilter("ignore")
     #Task 1: Build sentence pairs
     print("\nTask 1: Build sentence pairs ----------------------------------------------------------------------------------------------------------------")

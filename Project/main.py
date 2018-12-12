@@ -8,11 +8,31 @@ from task2_file import sentenceSimilarityForTask2, task2,get_wordnet_pos
 from task5_file import sentenceSimilarityForTask5, task5
 from task4_file import task4
 from task6_file import task6
+#from Syntactic_Similarity import task3SyntacticRunner, normalize,stem_tokens,task3SyntacticSim
+from Syntactic_Similarity import task3SyntacticRunner
+from Ngram_Similarity import task3NgramSim
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 '''
 Main function. This will be used to run all the tests.
 '''
 if __name__== "__main__":
+    from sys import warnoptions as sys_warnoptions
+    import warnings
+    
+    if not sys_warnoptions:     #Hide warnings from sklern package
+        warnings.simplefilter("ignore")
+
+    #remove_punctuation_map = dict((ord(char), None) for char in string.punctuation)
+    #vectorizer = TfidfVectorizer(tokenizer=normalize, stop_words='english')
+    #val = task3SyntacticSim("A car is driving on the road","A car is driving on the road")
+    #val1 = task3SyntacticSim("I love kebab very much while driving with scooter","A car is driving on the road")
+    #val = task3NgramSim("A car is driving on the road","A car is driving on the road")
+    
+    
+    #import sys
+    #sys.exit(0)
+    
+    
     #Task 1: Build sentence pairs
     print("\nTask 1: Build sentence pairs ----------------------------------------------------------------------------------------------------------------")
     sentencePairs=task1()
@@ -26,7 +46,13 @@ if __name__== "__main__":
     #Task 3
     print("\nTask 3: Calculate similarity for the sentence pairs -----------------------------------------------------------------------------------------")
     task3SemanticRunner(sentencePairs)
-
+    print("\n-----------------------")
+    task3SyntacticRunner(sentencePairs)
+    print("\n-----------------------")
+    
+    import sys
+    sys.exit(0)
+    
     #Task 4: Calculate similarity for the sentence pairs using YAGO
     print("\nTask 4: Calculate similarity for the sentence pairs using YAGO concepts ---------------------------------------------------------------------")
     task4(sentencePairs)

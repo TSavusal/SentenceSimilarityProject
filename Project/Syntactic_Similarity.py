@@ -4,6 +4,15 @@ import sklearn
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 
+
+def task3SyntacticRunner(sentencePairs):
+    for i in range(0,len(sentencePairs)):
+        s1 = sentencePairs[i][0]
+        s2 = sentencePairs[i][1]
+        sim = task3SyntacticSim(s1,s2)
+        sim = (round(sim,3))
+        print("Similarity3 (Syntactic): " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))
+        
 def task3SyntacticSim(sent1,sent2):
 	vectorizer = TfidfVectorizer(tokenizer=normalize, stop_words='english')
 	tfidf = vectorizer.fit_transform([sent1, sent2])

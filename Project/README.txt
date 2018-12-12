@@ -16,7 +16,7 @@ pip install dill
 3. How to run?
 - Run "main.py"
 - It will run all the tests and print the results.
-- Alternatively you can use python 2.7 to run files:
+- Alternatively you can use python3 to run files:
     "Ngram_Similarity.py"
     "Semantic_Similarity.py"
     "Syntactic_Similarity.py"

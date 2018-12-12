@@ -128,4 +128,4 @@ def task2(sentencePairs,similarity_method):
         s2 = sentencePairs[i][1]
         sim = sentenceSimilarityForTask2(s1,s2,similarity_method)
         sim = (round(sim,3))
-        print("Similarity2: " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print
+        print("Similarity: " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print

@@ -6,10 +6,7 @@ from collections import Counter
 import nltk
 from nltk.util import ngrams
 
-"""<<<<<<< HEAD"""
-NGRAM = 4
-=======
-""">>>>>>> 0e3e927449d3919647d34c77ea0765abb1aecbc0"""
+#NGRAM = 4
 
 """re_stripper_alpha = re.compile('[^a-zA-Z]+')
 sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')"""
@@ -52,7 +49,7 @@ def task3NgramSimRunner(sentencePairs,ngramLen):
         s2 = sentencePairs[i][1]
         sim = task3NgramSim(s1,s2,ngramLen)
         sim = (round(sim,3))
-        print("Similarity3 (N-GRAM): " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))
+        print("Similarity (N-GRAM): " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))
 def task3NgramSim(sent1,sent2,ngramLen):
 	#print(sent1)
 	_ = get_tuples_nltk_punkt_sentences(sent1,ngramLen);#print("Number of N-grams (first sentence):", len(_));_

@@ -11,7 +11,7 @@ def task3SyntacticRunner(sentencePairs):
         s2 = sentencePairs[i][1]
         sim = task3SyntacticSim(s1,s2)
         sim = (round(sim,3))
-        print("Similarity3 (Syntactic): " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))
+        print("Similarity (Syntactic): " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))
         
 def task3SyntacticSim(sent1,sent2):
 	vectorizer = TfidfVectorizer(tokenizer=normalize, stop_words='english')

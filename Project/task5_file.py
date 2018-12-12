@@ -117,7 +117,7 @@ def task5(sentencePairs,model):
         s2 = sentencePairs[i][1]
         sim = sentenceSimilarityForTask5(s1,s2,model)
         sim = (round(sim,3))
-        print("Similarity2: " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print
+        print("Similarity: " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print
     return(model)
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 '''

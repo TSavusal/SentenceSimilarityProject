@@ -10,33 +10,16 @@ from task4_file import task4
 from task6_file import task6
 #from Syntactic_Similarity import task3SyntacticRunner, normalize,stem_tokens,task3SyntacticSim
 from Syntactic_Similarity import task3SyntacticRunner
-from Ngram_Similarity import task3NgramSim,task3NgramSimRunner
+from Ngram_Similarity import task3NgramSimRunner
+from sys import warnoptions as sys_warnoptions
+from warnings import simplefilter as warnings_simplefilter
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 '''
 Main function. This will be used to run all the tests.
 '''
 if __name__== "__main__":
-    from sys import warnoptions as sys_warnoptions
-    import warnings
-    
     if not sys_warnoptions:     #Hide warnings from sklern package
-        warnings.simplefilter("ignore")
-
-    #remove_punctuation_map = dict((ord(char), None) for char in string.punctuation)
-    #vectorizer = TfidfVectorizer(tokenizer=normalize, stop_words='english')
-    #val = task3SyntacticSim("A car is driving on the road","A car is driving on the road")
-    #val1 = task3SyntacticSim("I love kebab very much while driving with scooter","A car is driving on the road")
-    #val = task3NgramSim("A car is driving on the road","A car is driving on the road")
-    #val = task3NgramSim("A car is driving on the road","A car is driving on the road",ngramLen)
-    #val = task3NgramSim("A car is driving on the road","A car is driving on the road",ngramLen)
-    #print(val)
-    #sentencePairs=task1()
-    #ngramLen = 1      #Length of the n-gram to be used.
-    
-    #import sys
-    #sys.exit(0)
-    
-    
+        warnings_simplefilter("ignore")
     #Task 1: Build sentence pairs
     print("\nTask 1: Build sentence pairs ----------------------------------------------------------------------------------------------------------------")
     sentencePairs=task1()

@@ -32,8 +32,7 @@ def task3SemanticRunner(sentencePairs):
         s2 = sentencePairs[i][1]
         sim = task3SemanticSim(s1,s2)
         sim = (round(sim,3))
-        print("Similarity3 (Semantic): " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))
-        #print("Similarity3 (Semantic): " + str(task3SemanticSim(s1,s2)).ljust(18) + " for sentence pair: "+ str(sentencePairs[i]))
+        print("Similarity (Semantic): " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))
 def proper_synset(word_one,word_two):
     pair = (None,None)
     maximum_similarity = -1

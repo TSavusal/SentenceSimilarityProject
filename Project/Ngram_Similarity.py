@@ -6,19 +6,22 @@ from collections import Counter
 import nltk
 from nltk.util import ngrams
 
-NGRAM = 0.5
+NGRAM = 4
 
-re_stripper_alpha = re.compile('[^a-zA-Z]+')
-sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
+"""re_stripper_alpha = re.compile('[^a-zA-Z]+')
+sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')"""
 
 def get_tuples_nosentences(txt):
     """Get tuples that ignores all punctuation (including sentences)."""
+    re_stripper_alpha = re.compile('[^a-zA-Z]+')
     if not txt: return None
     ng = ngrams(re_stripper_alpha.sub(' ', txt).split(), NGRAM)
     return list(ng)
 
 def get_tuples_nltk_punkt_sentences(txt):
     """Get tuples."""
+    re_stripper_alpha = re.compile('[^a-zA-Z]+')
+    sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
     if not txt: return None
     sentences = (re_stripper_alpha.split(x) for x in sent_detector.tokenize(txt) if x)
     # Need to filter X because of empty 'words' from punctuation split

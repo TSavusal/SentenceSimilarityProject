@@ -18,6 +18,6 @@ def task6(filename):
 
     #Split textlines into sentence pairs and add them to sentencePairs
     for line in textlines:
-        sentencePairs.append(line.split(","))
+        sentencePairs.append(line.split(";"))
 
     return(sentencePairs)

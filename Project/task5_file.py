@@ -5,6 +5,8 @@ from nltk import word_tokenize
 from gensim.models import KeyedVectors
 from nltk.corpus import stopwords
 import logging
+import re
+import nltk
 '''
 Sentence similarity with Word2Vec model.
 
@@ -35,14 +37,32 @@ model = Word2Vec(sentences, min_count=1, workers=12)      #NOTE: Have Cython ins
 print(sentenceSimilarityForTask5(s1,s2,model))
 
 '''
+def keep_allowed_chars(sentence):
+    allowed = ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\''
+    # sentence = ''.join( c for c in sentence if c in allowed )
+    sentence = ''.join( c for c in sentence if c in allowed )
+    return(sentence)
+
 def sentenceSimilarityForTask5(s1,s2,model):
     # https://stackoverflow.com/questions/27632404/how-should-i-train-gensim-on-brown-corpus
     # https://rare-technologies.com/word2vec-tutorial/
  
+    #Lowercase
     s1 = s1.lower()
     s2 = s2.lower()
+    
+    #Strip non-alphabets
+    s1 = keep_allowed_chars(s1)
+    s2 = keep_allowed_chars(s2)
+    
+    #Tokenize
     s1_tokenized=word_tokenize(s1)
     s2_tokenized=word_tokenize(s2)
+
+    #Stem
+    # stemmer = nltk.stem.porter.PorterStemmer()
+    # s1_tokenized =  [stemmer.stem(item) for item in s1_tokenized]
+    # s2_tokenized =  [stemmer.stem(item) for item in s2_tokenized]
 
     # Remove stop words
     #s1_tokenized = [word for word in s1_tokenized if word not in stopwords.words('english')]
@@ -59,7 +79,10 @@ def sentenceSimilarityForTask5(s1,s2,model):
     items=0
     for a in s1_tokenized:
         for b in s2_tokenized:
-            sim = model.similarity(a, b)
+            try:
+                sim = model.similarity(a, b)
+            except:
+                continue
             #print("Similarity between words '("+str(a)+")' and '("+str(b)+")': "+str(sim))
             items=items+1
             total=total+sim
@@ -117,6 +140,12 @@ def task5(sentencePairs,model):
         s2 = sentencePairs[i][1]
         sim = sentenceSimilarityForTask5(s1,s2,model)
         sim = (round(sim,3))
+        
+        #Write to csv
+        # with open('sim.csv','a') as fd:
+            # my_str = str(sim) + "\n"
+            # fd.write(my_str)
+        
         print("Similarity: " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print
     return(model)
 # --------------------------------------------------------------------------------------------------------------------------------------------------------

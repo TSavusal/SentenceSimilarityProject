@@ -1,0 +1,100 @@
+Car is driving on the road;Car is driving on the road
+Van is driving on the road;Car is driving on the road
+Van is travelling on the road;Car is driving on the road
+Van is travelling on the highway;Car is driving on the road
+Van is commuting on a highway;Car is driving on the road
+I like cake with chocolate;I like cake with chocolate
+I hate cake with chocolate;I like cake with chocolate
+I hate trees with chocolate;I like cake with chocolate
+I hate trees without chocolate;I like cake with chocolate
+I hate trees without sap;I like cake with chocolate
+She was expecting guests;She was expecting guests
+A woman was expecting guests;She was expecting guests
+A woman was expecting a gift;She was expecting guests
+A woman was gifted a gift;She was expecting guests
+A cat was given a treat;She was expecting guests
+Dog loves to eat good food;Dog loves to eat good food
+Dog loves to eat bad food;Dog loves to eat good food
+Dog hates to eat bad food;Dog loves to eat good food
+Dog hates to eat bad bones;Dog loves to eat good food
+Cat hates to eat bad bones;Dog loves to eat good food
+Building a plane takes skill;Building a plane takes skill
+Constructing a plane takes skill;Building a plane takes skill
+Constructing a plane requires skill;Building a plane takes skill
+Constructing a plane requires education;Building a plane takes skill
+Only engineers can manufacture airplanes;Building a plane takes skill
+Throw away all cheese burgers!;Throw away all cheese burgers!
+Cast away all cheese burgers!;Throw away all cheese burgers!
+Cast off all cheese burgers!;Throw away all cheese burgers!
+Cast off all cheese bread!;Throw away all cheese burgers!
+Cast off all ham bread!;Throw away all cheese burgers!
+I travelled here from New York;I travelled here from New York
+I travelled here from Los Angeles;I travelled here from New York
+I travelled there from Los Angeles;I travelled here from New York
+I ran there from Los Angeles;I travelled here from New York
+He ran there from Los Angeles;I travelled here from New York
+I never expected to see you today;I never expected to see you today
+I never wanted to see you today;I never expected to see you today
+I always wanted to see you today;I never expected to see you today
+I always wanted to see her today;I never expected to see you today
+I always wanted to meet her today;I never expected to see you today
+He is scared of spiders;He is scared of spiders
+An elephant is scared of spiders;He is scared of spiders
+An elephant is scared of mice;He is scared of spiders
+An elephant is terrified by mice;He is scared of spiders
+Animals do not like other animals;He is scared of spiders
+My name is Earl Smith;My name is Earl Smith
+My name is Jane Smith;My name is Earl Smith
+My name is Jack Jones;My name is Earl Smith
+His name is Jack Jones;My name is Earl Smith
+Our names are Jack Jones;My name is Earl Smith
+The knight hit me with a sword;The knight hit me with a sword
+The knight hit me with a lance;The knight hit me with a sword
+The wizard hit me with a lance;The knight hit me with a sword
+The wizard hit the princess with a lance;The knight hit me with a sword
+The wizard killed the princess with a lance;The knight hit me with a sword
+Great work writing these words;Great work writing these words
+Great work writing these papers;Great work writing these words
+Great work writing your papers;Great work writing these words
+Great job writing your papers;Great work writing these words
+Great job flushing your papers;Great work writing these words
+When it rains it pours;When it rains it pours
+When it falls it pours;When it rains it pours
+When it falls it cries;When it rains it pours
+How it falls it cries;When it rains it pours
+How he falls it cries;When it rains it pours
+The postman arrived on time;The postman arrived on time
+The policeman arrived on time;The postman arrived on time
+The policeman arrived on land;The postman arrived on time
+A policeman arrived on land;The postman arrived on time
+A policeman crashed on land;The postman arrived on time
+The bane of my existence;The bane of my existence
+The bane of my life;The bane of my existence
+The despair of my life;The bane of my existence
+The despair of your life;The bane of my existence
+The despair in your life;The bane of my existence
+Sun rises from the east;Sun rises from the east
+Sun rises from the horizon;Sun rises fromathe east
+Sun rises below the horizon;Sun rises from the east
+Sun lies below the horizon;Sun rises from the east
+A celestial object lies below the horizon;Sun rises from the east
+Dogs are a man's best friend;Dogs are a man's best friend
+Cats are a man's best friend;Dogs are a man's best friend
+Cats are a dogs best friend;Dogs are a man's best friend
+Cats are a dogs best enemy;Dogs are a man's best friend
+Cats are a dogs worst enemy;Dogs are a man's best friend
+Hello world, I love you!;Hello world, I love you!
+Hello world, I hate you!;Hello world, I love you!
+Hello planet, I hate you!;Hello world, I love you!
+Hello planet, we hate you!;Hello world, I love you!
+Goodbye planet, we hate you;Hello world, I love you!
+The bestman was looking at the wine bottle with wishful eyes;The bestman was looking at the wine bottle with wishful eyes
+The bestman is watching at the wine bottle with wishful eyes;The bestman was looking at the wine bottle with wishful eyes
+The bestman is watching at the beer keg with wishful eyes;The bestman was looking at the wine bottle with wishful eyes
+The bestman is watching at the beer keg with dark sunglasses;The bestman was looking at the wine bottle with wishful eyes
+The bestman is watching at the beer keg with dark sunglasses at noon;The bestman was looking at the wine bottle with wishful eyes
+A plane is flying on the sky on a Sunday afternoon;A plane is flying on the sky on a Sunday afternoon
+A jet is flying on the sky on a Sunday afternoon;A plane is flying on the sky on a Sunday afternoon
+A jet was flying on the sky on a Sunday afternoon;A plane is flying on the sky on a Sunday afternoon
+A jet was soaring on the sky on a Sunday afternoon;A plane is flying on the sky on a Sunday afternoon
+A jet was soaring near the skyline on a Sunday afternoon;A plane is flying on the sky on a Sunday afternoon

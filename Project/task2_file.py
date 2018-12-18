@@ -2,6 +2,7 @@ from nltk import word_tokenize
 from nltk import pos_tag
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet as wn
+# from task5 import keep_allowed_chars
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # def sentenceSimilarityForTask2(s1,s2,method):
@@ -128,4 +129,10 @@ def task2(sentencePairs,similarity_method):
         s2 = sentencePairs[i][1]
         sim = sentenceSimilarityForTask2(s1,s2,similarity_method)
         sim = (round(sim,3))
-        print("Similarity: " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print
+        
+        #Write to csv
+        # with open('sim.csv','a') as fd:
+            # my_str = str(sim) + "\n"
+            # fd.write(my_str)
+        
+        print("Similarity: ("+str(similarity_method)+") " + str(sim).ljust(5) + " for sentence pair: "+ str(sentencePairs[i]))    #NOTE: ljust is used in order to format the print

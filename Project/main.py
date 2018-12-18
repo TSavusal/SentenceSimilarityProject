@@ -22,7 +22,9 @@ if __name__== "__main__":
         warnings_simplefilter("ignore")
     #Task 1: Build sentence pairs
     print("\nTask 1: Build sentence pairs ----------------------------------------------------------------------------------------------------------------")
-    sentencePairs=task1()
+    sentencePairs=task1()   #short list of sentences (our partial database)
+    #sentencePairs=task6("sentencepairs_our_database.txt")   #Full set of sentence pairs from our database
+    
     #Task 2: Calculate similarity for the sentence pairs
     print("\nTask 2: Calculate similarity ----------------------------------------------------------------------------------------------------------------")
     print("\nTask 2a: path_sim metric")
@@ -49,6 +51,7 @@ if __name__== "__main__":
 
 	#Task 6: Build and use dataset sentence pairs in tasks 2,3,4 and 5
     sentencePairs2=task6("sentencepairs.txt")
+    # sentencePairs2=task6("sentencepairs_complete.txt")    #the full database
 
     print("\nTask 6 sentence similarity using method from Task 2: -----------------------------------------------------------------------------------------")
     print("\npath_sim metric")

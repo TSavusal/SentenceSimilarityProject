@@ -13,6 +13,7 @@ pip install dill
 
 - NOTE: sematch has to be installed from github, since otherwise you will get python2 version of the package (AKA the wrong one). We need python3 version.
 
+
 3. How to run?
 - Run "main.py"
 - It will run all the tests and print the results.

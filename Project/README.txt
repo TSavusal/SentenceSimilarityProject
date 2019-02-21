@@ -13,10 +13,9 @@ pip install dill
 
 - NOTE: sematch has to be installed from github, since otherwise you will get python2 version of the package (AKA the wrong one). We need python3 version.
 
-
 3. How to run?
 - Run "main.py"
-- It will run all the tests and print the results.
+- It will run all the tests from chosen set of sentence pairs and print the results.
 - Alternatively you can use python3 to run files:
     "Ngram_Similarity.py"
     "Semantic_Similarity.py"
